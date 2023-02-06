@@ -14,29 +14,27 @@ const Homepage = () => {
 					color: 'rgba(255,255,255,255)',
 					zIndex: 5,
 					position: 'relative',
-
-					transform: 'translate(0%,150%)',
+					top: '50vh',
+					//transform: 'translate(0%,125%)',
 					textAlign: 'center',
 				}}
 			>
-				<Container text>
+				<Container>
 					<Header
 						inverted
-						as="h1"
 						content={`"I Like to Dance with Fire...`}
 						style={{
-							fontSize: '4em',
+							fontSize: 'clamp(2rem, 3vw + 1rem, 8rem)',
 							fontWeight: 'normal',
-							textShadow: '0 0 2px black',
+							textShadow: '0 0 10px black',
 							marginBottom: 0,
 						}}
 					/>
 					<Header
-						as="h2"
 						content={`... and Build things for the Internet."`}
 						inverted
 						style={{
-							fontSize: '1.7em',
+							fontSize: 'clamp(0.1rem, 1vw + 1rem, 5rem)',
 							fontWeight: 'normal',
 							marginTop: '1.5em',
 						}}
@@ -58,6 +56,7 @@ const Homepage = () => {
 			</div>
 
 			<Image
+				priority
 				fill
 				style={{ objectFit: 'cover' }}
 				alt="Landing Page Photo"
