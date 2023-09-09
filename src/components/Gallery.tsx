@@ -12,16 +12,40 @@ const fetcher = async (args: RequestInfo) => {
 	return json;
 };
 
+interface galleryData {
+	uid: string;
+	url: string;
+	width: number;
+	height: number;
+	imageUpdateDate: Date;
+	albumAddDate: Date;
+}
 const ImagesGallery = () => {
 	const { data, error } = useSWR('/api/data/photos', fetcher);
+	const [urls, setUrls] = useState([]);
+	useEffect(() => {
+		if (data) {
+			const MappedUrls = data?.map(({ url }: galleryData) => {
+				return {
+					original: url,
+				};
+			});
 
+			setUrls(MappedUrls);
+		}
+	}, [data]);
 	return data ? (
 		<Grid>
 			<Grid.Row>
 				<Grid.Column width={16}>
-					<Segment vertical inverted basic>
+					<Segment
+						vertical
+						inverted
+						basic>
 						<Container>
-							<Header inverted as="h2">
+							<Header
+								inverted
+								as="h2">
 								Some photos from my Google Album
 							</Header>
 							<Divider />
@@ -31,7 +55,7 @@ const ImagesGallery = () => {
 								showFullscreenButton={true}
 								disableSwipe={false}
 								showThumbnails={false}
-								items={data}
+								items={urls}
 								slideInterval={10000}
 								slideDuration={400}
 							/>
