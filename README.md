@@ -11,7 +11,7 @@ https://mglk.tech/
 
 *I learned how to create this repository using Freely accessible services from YouTube, Stack Overflow, nodejs.org, and other related internet forums.*
 
-*That's why I have decided to publish this repository for the same price. FREE*.
+*That's why I have decided to publish this repository*
 
 
 *If you can find anything useful from my code, good on you. Feel free to mention me, or don't, it's completely up to you!*
